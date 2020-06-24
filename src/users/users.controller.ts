@@ -7,11 +7,13 @@ export class UsersController {
     constructor(private readonly userService: UserService) {}
 
     @Get()
-    index() {
-        const user = this.userService.find(1);
-        const users = this.userService.findAll();
+    async index() {
+        const user = await this.userService.find(2);
+        // const users = this.userService.findAll();
 
-        return users;
+        return {
+            user
+        };
     }
 
     @Post()
